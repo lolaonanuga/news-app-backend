@@ -18,7 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-every .hours do # 1.minute 1.day 1.week 1.month 1.year is also supported
-    runner "Story.get_news"
+every 1.minute do # 1.minute 1.day 1.week 1.month 1.year is also supported
+    runner "Story.refresh_news"
     
   end

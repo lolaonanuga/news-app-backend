@@ -1,26 +1,32 @@
 class Api::V1::CommentsController < ApplicationController
 
-    before_action :find_story, only: [:update]
+    before_action :find_story, only: [:show, :update]
   def index
     @comments = Comment.all
     render json: @comments
   end
 
+
+  def show
+    render json: @comment
+  end
+
   def create
-    @comment.create(comment_params)
+    @comment = Comment.new(comment_params)
+    if @comment.save
+        render json: @comments
+    else
+        render json: {error: 'Unable to add comment.'}, status: 400
+    end
   end
 
 
-  def delete
-    @comment.destroy
-    @comments = Comment.all
-    render json: @comments
-  end
+  
 
   private
 
   def comment_params
-    params.permit(:audio_clip, :story_id)
+    params.require(:comment).permit([:text, :story_id])
   end
 
   def find_story
