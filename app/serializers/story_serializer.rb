@@ -3,6 +3,6 @@ class StorySerializer < ActiveModel::Serializer
   has_many :comments
 
   class CommentSerializer < ActiveModel::Serializer
-    attributes :id, :audio_clip, :story_id, :created_at
+    attributes :id, :text, :story_id, :created_at
 end
 end
