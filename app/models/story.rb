@@ -8,7 +8,7 @@ class Story < ApplicationRecord
         Story.all.each {|story| story.update(active: false)}
         @news = @@newsapi.get_top_headlines(sources: "the-new-york-times, bbc-news", pageSize:5)
         @news.each do |post|
-            Story.create(url: post.url, title: post.title, description: post.title, publishedAt: post.publishedAt, image_url: post.urlToImage)
+            Story.create(url: post.url, title: post.title, description: post.description, publishedAt: post.publishedAt, image_url: post.urlToImage)
         end
     end
 
