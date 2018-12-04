@@ -20,13 +20,21 @@ class Api::V1::CommentsController < ApplicationController
     end
   end
 
+  def update
+    @comment = Comment.update(comment_params)
+    if @comment
+        render json: @comments
+    else
+        render json: {error: 'Unable to like comment.'}, status: 400
+    end
 
-  
+  end
+
 
   private
 
   def comment_params
-    params.require(:comment).permit([:text, :story_id, :created_at])
+    params.require(:comment).permit([:text, :story_id, :created_at, :likes])
   end
 
   def find_story
