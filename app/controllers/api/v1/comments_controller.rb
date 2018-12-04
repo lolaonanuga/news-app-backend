@@ -26,7 +26,7 @@ class Api::V1::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit([:text, :story_id])
+    params.require(:comment).permit([:text, :story_id, :created_at])
   end
 
   def find_story
