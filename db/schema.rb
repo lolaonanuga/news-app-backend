@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_113140) do
+ActiveRecord::Schema.define(version: 2018_12_04_235606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2018_12_04_113140) do
     t.integer "likes", default: 0
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.string "key"
+    t.string "stories"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "stories", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -32,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_12_04_113140) do
     t.datetime "updated_at", null: false
     t.boolean "active", default: true
     t.string "image_url"
-    t.string "content"
+    t.integer "country_id"
   end
 
 end

@@ -4,7 +4,8 @@
     namespace :api do
       namespace :v1 do
         resources :stories, only: [:index, :update, :create]
-        resources :comments, only: [:index, :show, :create, :update]
+        resources :countries, only: [:show]
+        # resources :comments, only: [:index, :show, :create, :update]
       end
     end
   end

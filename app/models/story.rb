@@ -1,5 +1,6 @@
 class Story < ApplicationRecord
-    has_many :comments
+    # has_many :comments
+    belongs_to :country
 
     require 'news-api'
     @@newsapi = News.new("525e8618ca644ffbb1a1f534a2385f03")
