@@ -1,16 +1,12 @@
 class Api::V1::CountriesController < ApplicationController
 
 
-    class Api::V1::StoriesController < ApplicationController
-
     #     before_action :find_story, only: [:update]
     
-    #   def index
-    #     # @current_stories = Story.where(active: true)
-    #     # @archived_stories = Story.where(active: false)
-    #     @stories = Story.all
-    #     render json: @stories
-    #   end
+      def index
+        @countries = Country.all
+        render json: @countries
+      end
 
       def show
         @country = Country.find(params[:id])
