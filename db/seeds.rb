@@ -12,7 +12,7 @@
 Story.delete_all
 Country.delete_all
 
-
+# only seed country array once
 array = %w(Argentina
 ar
 Australia
@@ -168,7 +168,7 @@ ua
 United\ Kingdom
 gb
 
-United\ States
+United\ States\ of\ America
 us
 
 Venuzuela
