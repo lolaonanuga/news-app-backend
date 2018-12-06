@@ -9,195 +9,204 @@
 
 # Story.refresh_news
 
-Story.delete_all
-Country.delete_all
+# Story.delete_all
+# Country.delete_all
 
-# only seed country array once
-array = %w(Argentina
-ar
-Australia
-au
+# # only seed country array once
+# array = %w(Argentina
+# ar
+# Australia
+# au
 
-Austria
-at
+# Austria
+# at
 
-Belgium
-be
+# Belgium
+# be
 
-Brazil
-br
+# Brazil
+# br
 
-Bulgaria
-bg
+# Bulgaria
+# bg
 
-Canada
-ca
+# Canada
+# ca
 
-China
-cn
+# China
+# cn
 
-Colombia
-co
+# Colombia
+# co
 
-Cuba
-cu
+# Cuba
+# cu
 
-Czech\ Republic
-cz
+# Czech\ Republic
+# cz
 
-Egypt
-eg
+# Egypt
+# eg
 
-France
-fr
+# France
+# fr
 
-Germany
-de
+# Germany
+# de
 
-Greece
-gr
+# Greece
+# gr
 
-Hong\ Kong
-hk
+# Hong\ Kong
+# hk
 
-Hungary
-hu
+# Hungary
+# hu
 
-India
-in
+# India
+# in
 
-Indonesia
-id
+# Indonesia
+# id
 
-Ireland
-ie
+# Ireland
+# ie
 
-Israel
-il
+# Israel
+# il
 
-Italy
-it
+# Italy
+# it
 
-Japan
-jp
+# Japan
+# jp
 
-Latvia
-lv
+# Latvia
+# lv
 
-Lithuania
-lt
+# Lithuania
+# lt
 
-Malaysia
-my
+# Malaysia
+# my
 
-Mexico
-mx
+# Mexico
+# mx
 
-Morocco
-ma
+# Morocco
+# ma
 
-Netherlands
-nl
+# Netherlands
+# nl
 
-New\ Zealand
-nz
+# New\ Zealand
+# nz
 
-Nigeria
-ng
+# Nigeria
+# ng
 
-Norway
-no
+# Norway
+# no
 
-Philippines
-ph
+# Philippines
+# ph
 
-Poland
-pl
+# Poland
+# pl
 
-Portugal
-pt
+# Portugal
+# pt
 
-Romania
-ro
+# Romania
+# ro
 
-Russia
-ru
+# Russia
+# ru
 
-Saudi\ Arabia
-sa
+# Saudi\ Arabia
+# sa
 
-Serbia
-rs
+# Serbia
+# rs
 
-Singapore
-sg
+# Singapore
+# sg
 
-Slovakia
-sk
+# Slovakia
+# sk
 
-Slovenia
-si
+# Slovenia
+# si
 
-South\ Africa
-za
+# South\ Africa
+# za
 
-South\ Korea
-kr
+# South\ Korea
+# kr
 
-Sweden
-se
+# Sweden
+# se
 
-Switzerland
-ch
+# Switzerland
+# ch
 
-Taiwan
-tw
+# Taiwan
+# tw
 
-Thailand
-th
+# Thailand
+# th
 
-Turkey
-tr
+# Turkey
+# tr
 
-UAE
-ae
+# UAE
+# ae
 
-Ukraine
-ua
+# Ukraine
+# ua
 
-United\ Kingdom
-gb
+# United\ Kingdom
+# gb
 
-United\ States\ of\ America
-us
+# United\ States\ of\ America
+# us
 
-Venuzuela
-ve)
+# Venuzuela
+# ve)
 
-country = []
-key = []
+# country = []
+# key = []
 
-array.each do |k|
-    k.length < 3 ? key.push(k) : country.push(k)
+# array.each do |k|
+#     k.length < 3 ? key.push(k) : country.push(k)
 
-end
+# end
 
-hash = {}
-n = 0  
-country.each do |c|   
+# hash = {}
+# n = 0  
+# country.each do |c|   
      
-        hash[c] = key[n]
-        n+=1
+#         hash[c] = key[n]
+#         n+=1
+# end
+
+# hash.each do |k, v|
+#     new_country = Country.create(name:k, key:v) 
+# end
+
+# Country.all.each do |country|
+#     country.get_stories
+# end
+include Scraper
+
+Story.where("sentiment IS ?", nil).each do |story|
+    story.update(sentiment: Scraper.get_page(story.url))
+    story.save
 end
 
-hash.each do |k, v|
-    new_country = Country.create(name:k, key:v) 
+
+Story.where("sentiment = 0").each do |story|
+    story.update(sentiment: Scraper.get_page(story.url))
+    story.save
 end
-
-Country.all.each do |country|
-    country.get_stories
-end
-
-
-
 

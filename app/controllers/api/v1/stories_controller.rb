@@ -1,6 +1,8 @@
 class Api::V1::StoriesController < ApplicationController
 
     before_action :find_story, only: [:update]
+    include Scraper
+    include Sentiment
 
   def index
     # @current_stories = Story.where(active: true)
@@ -27,9 +29,6 @@ class Api::V1::StoriesController < ApplicationController
     end
   end
 
-  
-
-
 #   def delete
 #     @story.destroy
 #     @stories = Story.all
@@ -39,7 +38,7 @@ class Api::V1::StoriesController < ApplicationController
   private
 
   def story_params
-    params.require(:story).permit([:title, :url, :comments, :id, :description, :image_url, :publishedAt, :active, :content])
+    params.require(:story).permit([:title, :url, :comments, :id, :description, :image_url, :publishedAt, :active, :sentiment])
   end
 
   def find_story

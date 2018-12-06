@@ -55,3 +55,15 @@ who
 have
 had
 advertisement
+email
+facebook
+messenger
+twitter
+pinterest
+whatsapp
+linkedin
+copy
+link
+copyright
+published
+updated
