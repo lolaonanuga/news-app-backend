@@ -33,6 +33,9 @@ module Scraper
         rescue Errno::ENETUNREACH
             puts "ENETUNREACH handled. Continuing seed..."
 
+        # rescue Google::Cloud::PermissionDeniedError
+        #     puts "PermissionDenied handled. Continuing seed..."
+
         end
 
         if doc

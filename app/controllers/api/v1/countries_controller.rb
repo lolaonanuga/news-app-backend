@@ -1,7 +1,4 @@
 class Api::V1::CountriesController < ApplicationController
-
-
-    #     before_action :find_story, only: [:update]
     
       def index
         @countries = Country.all
@@ -13,16 +10,6 @@ class Api::V1::CountriesController < ApplicationController
         render json: @country
       end
     
-    #   def create
-    #     @story = Story.new(story_params)
-    #     if @story.save
-    #         render json: @stories
-    #     else
-    #         render json: {error: 'Unable to add story.'}, status: 400
-    #     end
-    #   end
-    
-    
       private
     
       def country_params
@@ -33,6 +20,4 @@ class Api::V1::CountriesController < ApplicationController
         @country = Country.find(params[:id])
       end
     
-    
-
 end
