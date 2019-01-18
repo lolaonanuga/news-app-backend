@@ -19,7 +19,7 @@ bundle
 rails s
 ```
 
-# STEP 1: SET UP ENVIRONMENT
+# SETTING UP ENVIRONMENT
 
 To seed the database with news stories, you'll need to complete three steps in the seeds.rb file. When you're on Step 1, comment out Step 2 and 3, and so on. 
 
@@ -29,20 +29,12 @@ To seed the database with news stories, you'll need to complete three steps in t
    IN THE SHELL, paste the following: 
 
    ```
-    $'export GOOGLE_APPLICATION_CREDENTIALS='[PATH]
+    $ export GOOGLE_APPLICATION_CREDENTIALS=[PATH]
    ```
 
-    # for example:
-    # export GOOGLE_APPLICATION_CREDENTIALS='/Users/natashabuck/dev/mod3/news-app-rails/lib/NewsApp-7584f1ce17a2.json'
+  
 
-
-# STEP 2: ADDING STORIES
-
-
-
-# STEP 3: ADDING SENTIMENT
-
-This step should take about 10-15 minutes total. 
+The process should step should take about 10-15 minutes total. 
 
 
 ## Built With
