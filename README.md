@@ -1,24 +1,60 @@
-# README
+# Telescoop - Server
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Telescoop is a web app for viewing top news stories around the world with a visual display of the average ‘sentiment’ of the daily news in each country.
 
-Things you may want to cover:
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+This is the server side repo for the app. Please follow the instructions carefully.
 
-* Configuration
 
-* Database creation
+## Prerequisites
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Installing
 
-* Deployment instructions
+```
+bundle
+rails s
+```
 
-* ...
+# STEP 1: SET UP ENVIRONMENT
+
+To seed the database with news stories, you'll need to complete three steps in the seeds.rb file. When you're on Step 1, comment out Step 2 and 3, and so on. 
+
+ Every time you have a new shell session:
+     go into the 'lib' folder and ctrl+click on the file 'NewsApp-7584f1ce17a2.json'
+    select 'copy path'
+   IN THE SHELL, paste the following: 
+
+   ```
+    $'export GOOGLE_APPLICATION_CREDENTIALS='[PATH]
+   ```
+
+    # for example:
+    # export GOOGLE_APPLICATION_CREDENTIALS='/Users/natashabuck/dev/mod3/news-app-rails/lib/NewsApp-7584f1ce17a2.json'
+
+
+# STEP 2: ADDING STORIES
+
+
+
+# STEP 3: ADDING SENTIMENT
+
+This step should take about 10-15 minutes total. 
+
+
+## Built With
+
+
+[News API](https://newsapi.org)<br>
+[Google Translate API](https://cloud.google.com/translate)
+
+
+## Authors
+
+[Lola Onanuga](https://github.com/lollypop036) & [Natasha Buck](https://github.com/natashabuck)
+
+
+## Ackowledgements
