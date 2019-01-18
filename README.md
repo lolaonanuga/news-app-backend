@@ -19,7 +19,7 @@ bundle
 rails s
 ```
 
-# SETTING UP ENVIRONMENT
+# Setting up the environment
 
 To seed the database with news stories, you'll need to complete three steps in the seeds.rb file. When you're on Step 1, comment out Step 2 and 3, and so on. 
 
