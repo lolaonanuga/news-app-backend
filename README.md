@@ -10,7 +10,7 @@ This is the server side repo for the app. Please follow the instructions careful
 
 ## Prerequisites
 
-
+Rails 2.5.3
 
 ## Installing
 
